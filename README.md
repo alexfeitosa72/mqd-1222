@@ -44,11 +44,11 @@ O gênero foi **autodeclarado** pelos participantes no início de cada sessão e
 
 ### 2.4 Consolidação do dataset final
 
-Para cada instância e cada grupo de gênero, o rótulo majoritário foi determinado por **voto de pluralidade** entre os quatro julgamentos utilizados (em ordem de chegada):
+Para cada instância e cada grupo de gênero, o rótulo majoritário foi determinado por maioria entre os quatro julgamentos utilizados:
 
-- Configurações válidas: unanimidade (e.g, 4-0-0), maioria qualificada (e.g, 3-1-0) e pluralidade simples (e.g, 2-1-1)
+- Configurações válidas: unanimidade (e.g, 4-0-0), maioria qualificada (e.g, 3-1-0) e maioria simples (e.g, 2-1-1)
 - Configurações de empate (e.g, 2-2-0): instância descartada
-- O dataset final (**MQD-1222**) contém apenas instâncias com pluralidade válida em **ambos** os grupos simultaneamente (*inner join*)
+- O dataset final (**MQD-1222**) contém apenas instâncias com maioria válida em **ambos** os grupos simultaneamente (*inner join*)
 
 | Etapa | n |
 |---|---|
@@ -64,7 +64,7 @@ Para cada instância e cada grupo de gênero, o rótulo majoritário foi determi
 
 ### 3.1 Estrutura do arquivo
 
-`mqd-1222.csv` — separado por tabulação, codificação UTF-8, 1.209 linhas de dados + 1 linha de cabeçalho.
+`mqd-1222.csv` — separado por tabulação, codificação UTF-8, 1.222 linhas de dados + 1 linha de cabeçalho.
 
 | Coluna | Tipo | Descrição |
 |---|---|---|
@@ -126,7 +126,7 @@ Distribuição por faixa de tokens:
 | Neutra | 291 | 23,8% | 365 | 29,9% |
 | Positiva | 481 | 39,4% | 411 | 33,6% |
 
-O grupo feminino empregou a classe *neutra* com frequência 25,2% superior ao grupo masculino (363 vs 290 instâncias), evidenciando maior cautela interpretativa diante de conteúdos de polaridade atenuada.
+O grupo feminino empregou a classe *neutra* com frequência 25,4% superior ao grupo masculino (365 vs 291 instâncias), evidenciando maior cautela interpretativa diante de conteúdos de polaridade atenuada.
 
 ### 3.5 Qualidade da anotação e concordância entre grupos
 
