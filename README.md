@@ -1,16 +1,14 @@
-# Dataset Card — MQD-1209
+# Dataset Card — MQD-1222
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19209391.svg)](https://doi.org/10.5281/zenodo.19209780)
 
 ---
 
 ## 1. Contextualização
 
-O MQD-1209 é um dataset de **Análise de Sentimentos (AS) em português brasileiro** construído para investigar divergências interpretativas associadas ao gênero do anotador em tarefas de Classificação de Textos (CT). Trata-se recurso público pioneiro que combina, para o português brasileiro: (i) anotação pareada por grupos de gênero equilibrados, (ii) metadados de tempo de resposta preservados no nível do julgamento individual, e (iii) protocolo controlado de quatro anotadores por grupo por instância.
+O MQD-1222 é um dataset de **Análise de Sentimentos (AS) em português brasileiro** construído para investigar divergências interpretativas associadas ao gênero do anotador em tarefas de Classificação de Textos (CT). Trata-se recurso público pioneiro que combina, para o português brasileiro: (i) anotação pareada por grupos de gênero equilibrados, (ii) metadados de tempo de resposta preservados no nível do julgamento individual, e (iii) protocolo controlado de quatro anotadores por grupo por instância.
 
-O corpus textual é derivado do **MQD-1465**, conjunto de frases extraídas de uma plataforma pública de diários pessoais em português brasileiro. Os textos preservam sua forma original, incluindo variações ortográficas e expressões coloquiais, o que os torna representativos da escrita informal espontânea em redes sociais.
+O corpus textual é derivado do **MQD-1465**, conjunto de textos extraídos de uma plataforma pública de diários pessoais em português brasileiro. Os textos preservam sua forma original, incluindo variações ortográficas e expressões coloquiais, o que os torna representativos da escrita informal espontânea em redes sociais.
 
 ---
 
@@ -40,8 +38,7 @@ A coleta foi realizada na plataforma **PCIbex Farm** ([farm.pcibex.net](https://
 |---|---|---|---|
 | Anotadores únicos | 26 | 20 | **46** |
 | Anotações individuais | 7.015 | 6.302 | **13.317** |
-| Anotações por pessoa: mediana | 150 | 150 | — |
-| Anotações por pessoa: máx | 1.463 | 900 | — |
+
 
 O gênero foi **autodeclarado** pelos participantes no início de cada sessão e utilizado exclusivamente como critério de estratificação analítica, sem associação a qualquer outro dado pessoal identificável.
 
@@ -49,17 +46,17 @@ O gênero foi **autodeclarado** pelos participantes no início de cada sessão e
 
 Para cada instância e cada grupo de gênero, o rótulo majoritário foi determinado por **voto de pluralidade** entre os quatro julgamentos utilizados (em ordem de chegada):
 
-- Configurações válidas: unanimidade (4-0-0), maioria qualificada (3-1-0) e pluralidade simples (2-1-1)
-- Configurações de empate (2-2-0): instância descartada
-- O dataset final (**MQD-1209**) contém apenas instâncias com pluralidade válida em **ambos** os grupos simultaneamente (*inner join*)
+- Configurações válidas: unanimidade (e.g, 4-0-0), maioria qualificada (e.g, 3-1-0) e pluralidade simples (e.g, 2-1-1)
+- Configurações de empate (e.g, 2-2-0): instância descartada
+- O dataset final (**MQD-1222**) contém apenas instâncias com pluralidade válida em **ambos** os grupos simultaneamente (*inner join*)
 
 | Etapa | n |
 |---|---|
 | Corpus após deduplicação (MQD-1463) | 1.463 |
 | Anotações individuais coletadas | 13.317 |
-| Frases com pluralidade válida — masculino | 1.388 |
-| Frases com pluralidade válida — feminino | 1.263 |
-| **Dataset final (MQD-1209)** | **1.209** |
+| Frases com maioria válida — masculino | 1.388 |
+| Frases com maioria válida — feminino | 1.263 |
+| **Dataset final (MQD-1222)** | **1.222** |
 
 ---
 
@@ -67,7 +64,7 @@ Para cada instância e cada grupo de gênero, o rótulo majoritário foi determi
 
 ### 3.1 Estrutura do arquivo
 
-`MQD-1209_majoritarias.csv` — separado por tabulação, codificação UTF-8, 1.209 linhas de dados + 1 linha de cabeçalho.
+`mqd-1222.csv` — separado por tabulação, codificação UTF-8, 1.209 linhas de dados + 1 linha de cabeçalho.
 
 | Coluna | Tipo | Descrição |
 |---|---|---|
@@ -92,42 +89,42 @@ Para cada instância e cada grupo de gênero, o rótulo majoritário foi determi
 
 | Atributo | Média | Mediana | DP | Mín | Máx |
 |---|---|---|---|---|---|
-| `duracao_media_masculino` (s) | 10,19 | 5,56 | 35,57 | 1,52 | 786,77 |
-| `duracao_media_feminino` (s) | 10,92 | 6,62 | 35,02 | 2,04 | 917,63 |
+| `duracao_media_masculino` (s) | 10,24 | 5,55 | 35,53 | 1,52 | 786,77 |
+| `duracao_media_feminino` (s) | 10,87 | 6,62 | 34,84 | 2,04 | 917,63 |
 | `votos_maioria_masculino` | 3,41 | 4,00 | 0,67 | 2 | 4 |
-| `votos_maioria_feminino` | 3,32 | 3,00 | 0,64 | 2 | 4 |
+| `votos_maioria_feminino` | 3,31 | 3,00 | 0,64 | 2 | 4 |
 | `total_positiva_masculino` | 1,54 | 1,00 | 1,62 | 0 | 4 |
-| `total_negativa_masculino` | 1,44 | 1,00 | 1,67 | 0 | 4 |
-| `total_neutra_masculino` | 1,01 | 0,00 | 1,32 | 0 | 4 |
-| `total_positiva_feminino` | 1,23 | 0,00 | 1,48 | 0 | 4 |
+| `total_negativa_masculino` | 1,45 | 1,00 | 1,67 | 0 | 4 |
+| `total_neutra_masculino` | 1,01 | 0,00 | 1,31 | 0 | 4 |
+| `total_positiva_feminino` | 1,24 | 0,00 | 1,48 | 0 | 4 |
 | `total_negativa_feminino` | 1,41 | 1,00 | 1,63 | 0 | 4 |
 | `total_neutra_feminino` | 1,35 | 1,00 | 1,37 | 0 | 4 |
-| `concordancia_grupos` | 0,84 | 1,00 | 0,36 | 0 | 1 |
+| `concordancia_grupos` | 0,85 | 1,00 | 0,36 | 0 | 1 |
 
 ### 3.3 Comprimento das frases
 
 | Métrica | Média | Mediana | DP | Mín | Máx | P25 | P75 |
 |---|---|---|---|---|---|---|---|
-| Tokens (palavras) | 18,16 | 16,00 | 9,94 | 3 | 77 | 11 | 24 |
-| Caracteres | 97,25 | 85,00 | 52,95 | 16 | 411 | 57 | 127 |
+| Tokens (palavras) | 18,13 | 16,00 | 9,93 | 3 | 77 | 11 | 24 |
+| Caracteres | 97,06 | 85,00 | 52,89 | 16 | 411 | 57 | 127 |
 
 Distribuição por faixa de tokens:
 
 | Faixa | n | % |
 |---|---|---|
-| 1–5 palavras | 41 | 3,4% |
-| 6–10 palavras | 254 | 21,0% |
-| 11–20 palavras | 508 | 42,0% |
-| 21–40 palavras | 369 | 30,5% |
-| 41+ palavras | 37 | 3,1% |
+| 1–5 palavras | 42 | 3,4% |
+| 6–10 palavras | 258 | 21,1% |
+| 11–20 palavras | 513 | 42,0% |
+| 21–40 palavras | 372 | 30,4% |
+| 41+ palavras | 37 | 3,0% |
 
 ### 3.4 Distribuição de classes por grupo
 
 | Classe | Masculino n | Masculino % | Feminino n | Feminino % |
 |---|---|---|---|---|
-| Negativa | 444 | 36,7% | 440 | 36,4% |
-| Neutra | 290 | 24,0% | 363 | 30,0% |
-| Positiva | 475 | 39,3% | 406 | 33,6% |
+| Negativa | 450 | 36,8% | 446 | 36,5% |
+| Neutra | 291 | 23,8% | 365 | 29,9% |
+| Positiva | 481 | 39,4% | 411 | 33,6% |
 
 O grupo feminino empregou a classe *neutra* com frequência 25,2% superior ao grupo masculino (363 vs 290 instâncias), evidenciando maior cautela interpretativa diante de conteúdos de polaridade atenuada.
 
@@ -135,21 +132,21 @@ O grupo feminino empregou a classe *neutra* com frequência 25,2% superior ao gr
 
 | Métrica | Valor |
 |---|---|
-| Instâncias concordantes | 1.021 (84,4%) |
-| Instâncias discordantes | 188 (15,6%) |
-| Cohen's κ (κ_inicial) | **0,7652** — faixa *Substantial* (Landis & Koch, 1977) |
-| IC 95% bootstrap (κ) | [0,7352 ; 0,7962] |
-| Cramér's V | 0,7669 |
-| χ² de independência | 1422,18 (p ≈ 0) |
+| Instâncias concordantes | 1.033 (84,4%) |
+| Instâncias discordantes | 189 (15,6%) |
+| Cohen's κ (κ_inicial) | **0,7664** — faixa *Substantial* (Landis & Koch, 1977) |
+| IC 95% bootstrap (κ) | [0,7351 ; 0,7955] |
+| Cramér's V | 0,7679 |
+| χ² de independência | 1441,03 (p ≈ 0) |
 
 ### 3.6 Padrões de discordância entre grupos (n = 188)
 
 | Masculino → Feminino | n | % das discordâncias |
 |---|---|---|
-| positiva → neutra | 76 | 40,4% |
-| negativa → neutra | 43 | 22,9% |
-| neutra → negativa | 28 | 14,9% |
-| neutra → positiva | 18 | 9,6% |
+| positiva → neutra | 76 | 40,7% |
+| negativa → neutra | 43 | 22,8% |
+| neutra → negativa | 28 | 14,8% |
+| neutra → positiva | 18 | 9,5% |
 | positiva → negativa | 17 | 9,0% |
 | negativa → positiva | 6 | 3,2% |
 
@@ -159,8 +156,8 @@ Os dois padrões dominantes (positiva→neutra e negativa→neutra) respondem po
 
 | Grupo | Certeza média (votos_maioria / 4) | Mediana | DP | Unanimidade (4-0-0) |
 |---|---|---|---|---|
-| Masculino | 0,8515 | 1,00 | 0,169 | 620 (51,3%) |
-| Feminino | 0,8288 | 0,75 | 0,159 | 496 (41,0%) |
+| Masculino | 0,8513 | 1,00 | 0,168 | 624 (51,1%) |
+| Feminino | 0,8282 | 0,75 | 0,159 | 497 (40,7%) |
 
 O grupo masculino apresenta maior taxa de unanimidade interna (+10,3 p.p.), o que é consistente com o padrão de menor uso da classe neutra observado na distribuição de rótulos.
 
@@ -168,10 +165,10 @@ O grupo masculino apresenta maior taxa de unanimidade interna (+10,3 p.p.), o qu
 
 | Condição | Grupo | Mediana (s) | Média (s) | DP (s) |
 |---|---|---|---|---|
-| Concordante (n = 1.021) | Masculino | 5,44 | 9,51 | 30,55 |
-| Concordante (n = 1.021) | Feminino | 6,39 | 10,66 | 36,14 |
-| Discordante (n = 188) | Masculino | 6,03 | 13,84 | 55,38 |
-| Discordante (n = 188) | Feminino | 7,53 | 12,36 | 28,25 |
+| Concordante (n = 1.033) | Masculino | 5,44 | 9,58 | 30,58 |
+| Concordante (n = 1.033) | Feminino | 6,38 | 10,60 | 35,94 |
+| Discordante (n = 189) | Masculino | 6,03 | 13,81 | 55,23 |
+| Discordante (n = 189) | Feminino | 7,56 | 12,34 | 28,18 |
 
 Em ambos os grupos, os julgamentos sobre instâncias discordantes levaram mais tempo (mediana ~10–25% superior), sugerindo que maior dificuldade interpretativa se manifesta tanto no tempo de resposta quanto na divergência entre grupos.
 
@@ -184,10 +181,10 @@ Correlações de Spearman calculadas sobre os 1.209 pares de julgamentos (outlie
 | Par de variáveis | ρ de Spearman | p-valor | Interpretação |
 |---|---|---|---|
 | Duração × certeza — masculino | −0,156 | < 0,001 | Julgamentos mais rápidos tendem a ser mais unânimes |
-| Duração × certeza — feminino | −0,043 | 0,135 | **Não significativo** — tempo não prediz certeza no grupo feminino |
-| Certeza masculino × certeza feminino | +0,265 | < 0,001 | Concordância moderada de certeza entre grupos |
-| Concordância × duração masculino | −0,086 | 0,003 | Instâncias discordantes levam mais tempo |
-| Concordância × duração feminino | −0,100 | < 0,001 | Idem, efeito ligeiramente maior no grupo feminino |
+| Duração × certeza — feminino | −0,037 | 0,204 | **Não significativo** — tempo não prediz certeza no grupo feminino |
+| Certeza masculino × certeza feminino | +0,264 | < 0,001 | Concordância moderada de certeza entre grupos |
+| Concordância × duração masculino | −0,088 | 0,002 | Instâncias discordantes levam mais tempo |
+| Concordância × duração feminino | −0,103 | < 0,001 | Idem, efeito ligeiramente maior no grupo feminino |
 
 A assimetria na correlação duração × certeza entre os grupos é um achado de interesse para estudos futuros sobre estilos de deliberação por gênero em tarefas de rotulagem.
 
@@ -200,7 +197,7 @@ A assimetria na correlação duração × certeza entre os grupos é um achado d
 - **Treinamento e avaliação de classificadores de sentimento** com rótulos estratificados por grupo demográfico, permitindo análise de impacto da fonte de supervisão
 - **Benchmark de concordância interanotador** em contextos de língua portuguesa
 - **Estudos de tempo de decisão em crowdsourcing** — os metadados de duração preservados são raros em datasets públicos de NLP
-- **Validação de metodologias de detecção de viés amplificado** — o dataset foi desenhado para ser instância empírica da MIV, mas pode ser reutilizado em frameworks alternativos
+- **Validação de metodologias de detecção de viés amplificado** — o dataset foi desenhado para ser uma instância empírica específica, mas pode ser reutilizado em frameworks alternativos
 - **Investigação de características linguísticas correlacionadas com dificuldade interpretativa** — instâncias discordantes constituem subconjunto de interesse para análise qualitativa
 
 ---
@@ -211,7 +208,7 @@ A assimetria na correlação duração × certeza entre os grupos é um achado d
 - Dados anonimizados: participantes identificados apenas por hash MD5, sem associação a qualquer informação pessoal identificável
 - O gênero é autodeclarado e tratado como variável binária (m/f) — limitação reconhecida; estudos futuros devem contemplar representações não binárias
 - O corpus provém de um único domínio (diários pessoais informais); generalização para outros domínios requer investigação dedicada
-- Os metadados de duração individual por anotador (antes da agregação por grupo) estão disponíveis nos arquivos intermediários (`MQD-13317_anotacoes_totais.csv`) para análises futuras
+- Os metadados de duração individual por anotador (antes da agregação por grupo) estão disponíveis nos arquivos intermediários (`mqd-11704.csv`) para análises futuras
 
 ---
 
